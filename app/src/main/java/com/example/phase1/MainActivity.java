@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StorageManager.getStorageManager().createFileDir(getBaseContext(), true);
+        StorageManager.getStorageManager().createFileDir(getBaseContext(), false);
         NotificationCenter.getNotificationCenter().registerForData(this);
 
         getContainer = findViewById(R.id.get_container);
@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
             test.setText(Integer.toString(i));
             akbar.add(test);
         }
+        TextView test = new TextView(getApplicationContext());
+        test.setText("\n");
+        akbar.add(test);
 
         getContainer.removeAllViews();
         for(TextView t: akbar){
