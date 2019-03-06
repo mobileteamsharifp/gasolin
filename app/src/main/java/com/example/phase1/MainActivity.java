@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StorageManager.getStorageManager().createFileDir(getBaseContext(), false);
+        Log.i("uuuuuuuuuuuuuuuuuuu", "4");
+        StorageManager.getStorageManager().createFileDir(getBaseContext(), false );
         NotificationCenter.getNotificationCenter().registerForData(this);
 
         getContainer = findViewById(R.id.get_container);
@@ -29,11 +30,13 @@ public class MainActivity extends AppCompatActivity implements Observer {
         Button clearBtn = findViewById(R.id.clear_btn);
         Button refreshBtn = findViewById(R.id.refresh_btn);
         notificationCenter = NotificationCenter.getNotificationCenter();
+        showData();
 
         getBtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
+                Log.i("uuuuuuuuuuuuuuuuuuu", "3");
                 MessageController.getMessageController().fetch(false, getBaseContext());
             }
         });
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
     @SuppressLint("SetTextI18n")
     public void showData(){
-        Log.i("lllllllll", "4");
+        Log.i("uuuuuuuuuuuuuuuuuuu", "1");
         ArrayList<Integer> integers = MessageController.getMessageController().list;
         ArrayList<TextView> akbar = new ArrayList<>();
         for(int i : integers){
@@ -82,12 +85,10 @@ public class MainActivity extends AppCompatActivity implements Observer {
         for(TextView t: akbar){
             getContainer.addView(t);
         }
-        Log.i("lllllllll", "5");
     }
 
     @Override
     public void update() {
-        Log.i("lllllllll", "3");
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

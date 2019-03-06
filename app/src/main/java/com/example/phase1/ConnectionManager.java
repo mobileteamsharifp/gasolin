@@ -11,7 +11,7 @@ public class ConnectionManager {
 
     public synchronized int[] load(int num){
         try {
-            Thread.currentThread().sleep(10000);
+            Thread.currentThread().sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

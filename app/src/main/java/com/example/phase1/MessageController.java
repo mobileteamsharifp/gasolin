@@ -2,6 +2,7 @@ package com.example.phase1;
 
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -10,7 +11,7 @@ import java.util.concurrent.Executors;
 public class MessageController {
     private static MessageController messageController;
     ArrayList<Integer> list = new ArrayList<>();
-    private ExecutorService cloudExecutorService = Executors.newSingleThreadExecutor();
+    private ExecutorService cloudExecutorService =  Executors.newSingleThreadExecutor();
     private ExecutorService storageExecutorService = Executors.newSingleThreadExecutor();
     private Boolean isWorking = false;
 
@@ -35,6 +36,7 @@ public class MessageController {
                         list.add(i);
                     }
                     NotificationCenter.getNotificationCenter().data_loaded();
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "2");
                     isWorking = false;
                 }
 

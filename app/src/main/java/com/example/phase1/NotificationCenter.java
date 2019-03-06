@@ -1,7 +1,5 @@
 package com.example.phase1;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class NotificationCenter {
@@ -23,7 +21,6 @@ public class NotificationCenter {
     }
 
     public void data_loaded(){
-        Log.i("lllllllll", "2");
         for (Observer observer : dataObservers) {
             observer.update();
         }

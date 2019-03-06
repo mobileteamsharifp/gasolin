@@ -1,7 +1,6 @@
 package com.example.phase1;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,7 +33,6 @@ public class StorageManager {
             String lineData;
             do {
                 lineData = bufferedReader.readLine();
-                Log.i("oooooooo", "" + lineData);
             } while (lineData != null && Integer.valueOf(lineData) <= number);
             max = Integer.valueOf(lineData);
         } catch (Exception e) {
