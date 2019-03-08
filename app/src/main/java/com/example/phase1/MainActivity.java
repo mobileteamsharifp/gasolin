@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
     public void showData(){
         Log.i("uuuuuuuuuuuuuuuuuuu", "1");
         ArrayList<Integer> integers = MessageController.getMessageController().list;
+        Log.i("uuuuuuuuuuuuuuuuuuu", ">>>>> " + MessageController.getMessageController().list.size() + " " + integers.size());
         ArrayList<TextView> akbar = new ArrayList<>();
         for(int i : integers){
             TextView test = new TextView(getApplicationContext());

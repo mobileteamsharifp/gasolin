@@ -31,10 +31,13 @@ public class MessageController {
 
                 @Override
                 public void run(){
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "6");
                     int[] res = StorageManager.getStorageManager().load(max, context);
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "7");
                     for (int i : res) {
                         list.add(i);
                     }
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "8");
                     NotificationCenter.getNotificationCenter().data_loaded();
                     Log.i("uuuuuuuuuuuuuuuuuuu", "2");
                     isWorking = false;
@@ -48,16 +51,21 @@ public class MessageController {
 
                 @Override
                 public void run(){
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "9");
                     int[] res = ConnectionManager.getConnectionManager().load(max);
                     int max = -1;
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "10");
 
                     for (int i : res) {
                         list.add(i);
                         max = Math.max(max, i);
                     }
 
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "11");
                     NotificationCenter.getNotificationCenter().data_loaded();
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "12");
                     StorageManager.getStorageManager().save(max, context);
+                    Log.i("uuuuuuuuuuuuuuuuuuu", "13");
                     isWorking = false;
                 }
 
@@ -67,4 +75,9 @@ public class MessageController {
     }
 
     private MessageController(){}
+
+    public void stop() {
+        this.cloudExecutorService.shutdown();
+        this.storageExecutorService.shutdown();
+    }
 }
