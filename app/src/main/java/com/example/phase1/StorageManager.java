@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 
 public class StorageManager {
     private static StorageManager storageManager;
-    private String filename = "myfile.txt";
+    private String filename = "myfile1.txt";
     FileInputStream fileInputStream;
 
     public static StorageManager getStorageManager() {
@@ -86,7 +86,7 @@ public class StorageManager {
         File file = new File(context.getFilesDir(), filename);
         boolean made = true;
         if(!file.exists()){
-            made = file.mkdir();
+            made = file.getParentFile().mkdir();
         }
 
         if (clear){
